@@ -482,5 +482,3 @@ $('sendStudentResult').textContent='↻ إعادة محاولة إرسال ال�
 window.addEventListener('online',()=>{resultRetryCount=0;enqueueCurrentResult();flushSchoolResults();});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden){enqueueCurrentResult();flushSchoolResults();}});
 scheduleSchoolResult();
-
-$("schoolBrandLogo").src=mediaAssets["bf56a4937545b91c1fa7"];
