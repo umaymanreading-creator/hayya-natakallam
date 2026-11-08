@@ -3,3 +3,6 @@ canvas{object-fit:contain}mark{padding:0}#stageCount{direction:rtl;unicode-bidi:
 @media(orientation:portrait){.traceBoard{flex:0 1 auto;height:min(45vh,320px);width:100%;aspect-ratio:2/1}}
 
 .spokenExample{font-size:clamp(48px,12vw,100px);line-height:1.7;max-width:100%}.spokenExample mark,.exerciseWord mark{color:#c62828;background:transparent;padding:0}.spokenExample span,.spokenExample mark{font:inherit}
+
+/* Compact share links stay inside the phone viewport. */
+.activityTop #stageCount{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}main>header strong{min-width:0;flex:1} @media(max-width:420px){.activityTop{gap:5px}.activityTop button{padding:5px;min-height:44px;font-size:14px}.activityTop #stageCount{font-size:13px}main>header{gap:6px}main>header strong{font-size:16px}}
