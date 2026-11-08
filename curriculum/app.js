@@ -30,6 +30,7 @@ window.addEventListener('resize',()=>{const r=new URLSearchParams(location.hash.
 
 /* Shared activity integration */
 (()=>{const ST=window.SchoolTraining;if(!ST)return;const scope='g'+BOOK.grade+'-science';
+ST.useParticipant?.(()=>person,localStorage.getItem('arabic-student-profile-v1')?'arabic-student-profile-v1':'science-trial-profile');
 function init(){if(person?.name&&person?.grade)ST.baseline('curriculum',progress().stars.length,scope)}
 function meta(id){const q=questions[qi],term=termById[id||q?.term],lesson=currentLesson||lessonById[term?.lesson],unit=BOOK.units.find(u=>u.id===(term?.unit||termById[lesson?.terms[0]]?.unit));return{section:'curriculum',section_name:'كلماتي في دروسي',skill_id:scope,skill_name:'العلوم · '+BOOK.gradeLabel,unit_id:scope+':'+unit?.id,unit_name:unit?.title||'',lesson_id:scope+':'+lesson?.id,lesson_name:lesson?.title||'',activity_id:scope+':'+(q?.id||term?.id),activity_type:q?.type||'vocabulary',activity_name:(term?.name||'مطابقة مصطلحات')+' · '+({term:'اختيار مصطلح',image:'اختيار صورة',match:'مطابقة',write:'كتابة'}[q?.type]||'اكتشاف')}}
 window.schoolScienceAttempt=ok=>{init();ST.record({...meta(),kind:'attempt',outcome:ok?'correct':'retry',attempts:1})};
